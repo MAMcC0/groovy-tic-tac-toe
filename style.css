@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
 
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
 
 :root {
     --seventies-bg: #FFFBEB;      /* Lighter, warmer Cream background (like amber-50) */
@@ -44,7 +49,8 @@ body {
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.35), 
     -4px -4px 10px rgba(132, 204, 22, 0.15);
     border: 3px solid var(--border-color);
-    width: clamp(300px, 90vw, 480px); 
+    width: 95%;
+    max-width: 500px;
     max-height: 95vh; 
     overflow-y: auto; 
 }
@@ -162,9 +168,8 @@ body {
     border: 1px solid var(--border-color);
     box-shadow: inset 2px 2px 4px rgba( 0, 0, 0, 0.2);
     flex-wrap: wrap; 
-    gap: 8px 15px; 
+    gap: 10px 15px; 
     width: 95%;
-    max-width: 350px;
 }
 
 .score{
@@ -264,8 +269,8 @@ body {
     }
 
     .scoreboard {
-        padding: 8px 10px;
         gap: 5px 15px;
+        justify-content: center;
     }
 
     .score {
@@ -276,3 +281,7 @@ body {
         padding: 1px 5px; 
      }
 }
+@media (min-width: 600px) {
+    .scoreboard {
+        flex-wrap: nowrap;
+    }}
