@@ -58,3 +58,18 @@ body {
     margin-bottom: 30px;
     justify-content: center;
 }
+
+.cell {
+    background-color: var(--cell-bg);
+    border: 3px solid var(--border-color);
+    border-radius: var(--groovy-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2 ease, background-color 0.2 ease;
+    box-shadow: inset 3px 3px 5px rgba (0,0,0,0.1),
+        inset -3px -3px 5px rgba(255,255,255,0.1);
+}
