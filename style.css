@@ -7,4 +7,25 @@
     --o-color: #3498DB; /* Blue */
     --border-color: #46627f;
 }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--board-bg);
+    font-family: 'Poppins';
+    color: var(--text-color);
+    margin: 0;
+}
 
+.game-title {
+    margin-bottom: 15px;
+    font: size 2.5em;
+    color: var(--accent-color);
+    font-weight: 600;
+
+}
+
+.board {
+    
+}
