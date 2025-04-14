@@ -1,0 +1,10 @@
+:root {
+    --board-bg: #2C3E50; /* Dark blue-grey */
+    --cell-bg: #34495E;  /* Slightly lighter */
+    --text-color: #ECF0F1; /* Light grey/white */
+    --accent-color: #1ABC9C; /* Teal */
+    --x-color: #E74C3C; /* Red */
+    --o-color: #3498DB; /* Blue */
+    --border-color: #46627f;
+}
+
