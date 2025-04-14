@@ -1,21 +1,37 @@
 :root {
-    --board-bg: #2C3E50; /* Dark blue-grey */
-    --cell-bg: #34495E;  /* Slightly lighter */
-    --text-color: #ECF0F1; /* Light grey/white */
-    --accent-color: #1ABC9C; /* Teal */
-    --x-color: #E74C3C; /* Red */
-    --o-color: #3498DB; /* Blue */
-    --border-color: #46627f;
+    --seventies-bg: #FDF8E1;      /* Creamy background */
+    --container-bg: #A0522D;     /* Sienna Brown */
+    --cell-bg: #F5DEB3;          /* Wheat / Light wood */
+    --text-color: #4a3c32;       /* Darker Brown Text */
+    --title-color: #DAA520;      /* Goldenrod / Mustard Accent */
+    --button-bg: #CD853F;        /* Peru / Lighter Brown */
+    --button-text: var(--seventies-bg);
+    --border-color: #8B4513;     /* Saddle Brown */
+    --x-color: #D2691E;          /* Chocolate / Burnt Orange */
+    --o-color: #556B2F;          /* Dark Olive Green */
+
+    /* Groovy Shapes */
+    --groovy-radius: 1.5rem; 
 }
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: var(--board-bg);
+    background-color: var(--seventies-bg);
     font-family: 'Poppins';
     color: var(--text-color);
     margin: 0;
+    padding:20px;
+}
+
+.game-container {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--container-bg);
+    border-radius: var(--groovy-radius);
+    box-shadow: 8px 8px 15px rgba(0,0,0,0.3),
+        -5px -5px 10px rgba(255,255,255,0.1)
 }
 
 .game-title {
@@ -27,5 +43,5 @@ body {
 }
 
 .board {
-    
+
 }
