@@ -35,13 +35,26 @@ body {
 }
 
 .game-title {
-    margin-bottom: 15px;
-    font: size 2.5em;
-    color: var(--accent-color);
-    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 3em;
+    color: var(--title-color);
+    font-weight: 700;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
 
 }
+.status {
+    margin-bottom: 25px;
+    font-size: 1.3em;
+    min-height: 1.5em;
+    font-weight: 400;
+    color: var(--cell-bg);
 
+}
 .board {
-
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
 }
