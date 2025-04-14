@@ -27,4 +27,9 @@ const currentPlayerMessage = () => `Player ${currentPlayer}'s Turn!`;
 
 statusDisplay.textContent = currentPlayerMessage();
 
-fun
+function handleCellUsed (clickedCell, clickedCellIndex) {
+    gameState[clickedCellIndex] = currentPlayer;
+    clickedCell.textContent = currentPlayer;
+    clickedCell.classList.add(currentPlayer.toLowerCase());
+};
+
