@@ -3,10 +3,18 @@ const board = document.getElementById('board');
 const cells = document.querySelectorAll('.cell');
 const restartButton = document.getElementById('restartButton');
 
+const scoreXElements = document.getElementById('scoreX');
+const scoreOElements = document.getElementById('scoreO');
+const scoreDrawElements = document.getElementById('scoreDraw');
+
 
 let currentPlayer = "X";
 let gameState = ["","","","","","","","",""];
 let gameActive = true;
+
+let scoreX = 0;
+let scoreO = 0;
+let scoreDraw = 0;
 
 const winConditions = [
     [0,1,2],
@@ -26,6 +34,12 @@ const currentPlayerMessage = () => `Player ${currentPlayer}'s Turn!`;
 
 
 statusDisplay.textContent = currentPlayerMessage();
+
+function updateScoreboard(){
+    scoreXElements.textContent = scoreX;
+    scoreOElements.textContent = scoreO;
+    scoreDrawElements.textContent = scoreDraw;
+}
 
 function handleCellUsed (clickedCell, clickedCellIndex) {
     gameState[clickedCellIndex] = currentPlayer;
@@ -58,13 +72,22 @@ function handleResultValidation() {
     }
 
     if (roundWon){
-        statusDisplay.textContent = winMessage();
+        if (currentPlayer === "X") {
+            scoreX++;
+        } else {
+            scoreO++;
+        }
+
+        updateScoreboard();
+        statusDisplay.textContent=winMessage();
         gameActive = false;
         return;
     }
 
     const roundDraw = !gameState.includes("");
     if (roundDraw){
+        scoreDraw++;
+        updateScoreboard();
         statusDisplay.textContent = drawMessage();
         gameActive = false;
         return;
@@ -99,3 +122,6 @@ function handleRestartGame(){
 
 cells.forEach(cell => cell.addEventListener('click', handleCellClick));
 restartButton.addEventListener('click',handleRestartGame);
+
+statusDisplay.textContent = currentPlayerMessage();
+updateScoreboard();
