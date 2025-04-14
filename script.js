@@ -89,4 +89,13 @@ function handleCellClick(event){
 function handleRestartGame(){
     currentPlayer = "X";
     gameState = ["","","","","","","","","",];
+    gameActive = true;
+    statusDisplay.textContent = currentPlayerTurn();
+    cells.forEach(cell => {
+        cell.textContent = '';
+        cell.classList.remove('x', 'o');
+    });
 }
+
+cells.forEach(cell => cell.addEventListener('click', handleCellClick));
+restartButton.addEventListener('click',handleRestartGame);
