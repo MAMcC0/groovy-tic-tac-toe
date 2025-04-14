@@ -12,6 +12,9 @@
 
     /* Groovy Shapes */
     --groovy-radius: 2rem; 
+
+    --cell-size: clamp(70px, 20vmin, 110px); /* Cell size based on viewport, with min/max */
+    --gap-size: clamp(10px, 3vmin, 18px); /* Gap based on viewport */
 }
 body {
     display: flex;
@@ -23,23 +26,23 @@ body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-color);
     margin: 0;
-    padding:20px;
+    padding: 15px;
 }
 
 .game-container {
     text-align: center;
-    padding: 35px 40px;
+    padding: clamp(20px, 5vw, 40px);
     background-color: var(--container-bg);
     border-radius: var(--groovy-radius);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3),
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4),
     -6px -6px 12px rgba(132, 204, 22, 0.2); 
     border: 4px solid var(--border-color);
-    width: clamp(380px, 90vw, 480px);
+    width: clamp(320px, 95vw, 500px);
 }
 
 .game-title {
-    margin-bottom: 15px;
-    font-size: 3.5em;
+    margin-bottom: clamp(15px, 4vw, 25px);
+    font-size: clamp(2.5em, 8vw, 3.5em);
     color: var(--title-color);
     font-weight: 900;
     text-transform: uppercase;
@@ -48,8 +51,8 @@ body {
 
 }
 .status {
-    margin-bottom: 20px;
-    font-size: 1.4em;
+    margin-bottom: clamp(20px, 5vw, 30px);
+    font-size: clamp(1.1em, 4vw, 1.4em);
     min-height: 1.5em;
     font-weight: 600;
     color: var(--cell-bg);
@@ -59,21 +62,22 @@ body {
 }
 .board {
     display: grid;
-    grid-template-columns: repeat(3, minmax(80px,110px));
-    grid-template-rows: repeat(3, minmax(80px,110px));
-    gap: 18px;
-    margin-bottom: 35px;
+    grid-template-columns: repeat(3, var(--cell-size));
+    grid-template-rows: repeat(3, var(--cell-size));
+    gap: var(--gap-size);
+    margin-bottom:  0 auto clamp(25px, 6vw, 35px);
     justify-content: center;
+    max-width: calc(3* var(--cell-size) + 2 * var(--gap-size));
 }
 
 .cell {
     background-color: var(--cell-bg);
     border: 4px solid var(--border-color);
-    border-radius: var(--groovy-radius);
+    border-radius: clamp(1rem, 5vmin, var(--groovy-radius));
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: clamp(3em, 12vw, 4.5em);
+    font-size: clamp(2.5em, 12vmin, 4.5em);
     font-weight: 900;
     cursor: pointer;
     transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55), /* Bouncy transition */
@@ -81,6 +85,9 @@ body {
     box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.1),
     inset -4px -4px 6px rgba(255, 255, 255, 0.2);
     line-height: 1;
+    overflow: hidden;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .cell:hover:not(.x):not(.o){
@@ -106,8 +113,8 @@ body {
 }
 
 .restart-button{
-    padding: 18px 35px;
-    font-size: 1.0em;
+    padding: clamp(12px, 3vw, 18px) clamp(25px, 6vw, 35px);
+    font-size: clamp(1em, 3.5vw, 1.2em);
     font-weight: 700;
     color: var(--button-text);
     background-color: linear-gradient(145deg, var(--button-bg), #f5900b);
@@ -119,6 +126,7 @@ body {
     -3px -3px 8px rgba(253, 248, 225, 0.1);
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-top: 10px;
 }
 
 .restart-button:hover{
