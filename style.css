@@ -38,7 +38,7 @@ body {
 }
 
 .game-title {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     font-size: 3.5em;
     color: var(--title-color);
     font-weight: 900;
@@ -48,7 +48,7 @@ body {
 
 }
 .status {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: 1.4em;
     min-height: 1.5em;
     font-weight: 600;
@@ -131,4 +131,34 @@ body {
 .restart-button:active{
     transform: scale(0.96) translateY(1px);
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    border: 2px solid var(--border-color);
+    box-shadow: inset 2px 2px 4px rgba( 0, 0, 0, 0.2);
+}
+
+.score{
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--cell-bg);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.score strong{
+    display: inline-block;
+    margin-left: 5px;
+    padding: 2px 8px;
+    background-color: var(--seventies-bg);
+    color: var(--text-color);
+    border-radius: 5px;
+    min-width: 25px;
+    text-align: center;
 }
