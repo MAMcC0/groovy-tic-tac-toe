@@ -22,7 +22,6 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: var(--seventies-bg);
-    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"%3E%3Cpath fill="%239C92AC" fill-opacity="0.1" d="M1 3h1v1H1V3zm2-2h1v1H3V1z"%3E%3C/path%3E%3C/svg%3E');
     font-family: 'Poppins', sans-serif;
     color: var(--text-color);
     margin: 0;
@@ -30,6 +29,9 @@ body {
 }
 
 .game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     padding: clamp(20px, 5vw, 40px);
     background-color: var(--container-bg);
@@ -65,7 +67,7 @@ body {
     grid-template-columns: repeat(3, var(--cell-size));
     grid-template-rows: repeat(3, var(--cell-size));
     gap: var(--gap-size);
-    margin-bottom:  0 auto clamp(25px, 6vw, 35px);
+    margin-bottom: clamp(25px, 6vw, 35px);
     justify-content: center;
     max-width: calc(3* var(--cell-size) + 2 * var(--gap-size));
 }
@@ -151,22 +153,68 @@ body {
     border-radius: 15px;
     border: 2px solid var(--border-color);
     box-shadow: inset 2px 2px 4px rgba( 0, 0, 0, 0.2);
+    flex-wrap: wrap; 
+    gap: 10px; 
 }
 
 .score{
-    font-size: 1em;
+    font-size:clamp(1em, 3vw, 1.1em);
     font-weight: 600;
     color: var(--cell-bg);
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
 }
 
 .score strong{
     display: inline-block;
     margin-left: 5px;
-    padding: 2px 8px;
+    padding: 1px 6px;
     background-color: var(--seventies-bg);
     color: var(--text-color);
     border-radius: 5px;
-    min-width: 25px;
     text-align: center;
+    font-weight: 700;
+}
+
+@media (max-width: 380px) {
+    :root {
+        /* Make cells and gaps slightly smaller on tiny screens */
+        --cell-size: clamp(60px, 18vmin, 80px);
+        --gap-size: clamp(8px, 2.5vmin, 12px);
+    }
+
+    .game-container {
+        padding: 20px 15px; /* Reduce padding */
+    }
+
+    .game-title {
+        font-size: clamp(2em, 7vw, 2.5em); /* Reduce title size */
+    }
+
+    .status {
+         font-size: clamp(1em, 3.5vw, 1.2em); /* Reduce status size */
+    }
+
+     .cell {
+        border-width: 2px; /* Thinner border */
+        font-size: clamp(2em, 10vmin, 3.5em); /* Adjust X/O size */
+     }
+
+    .restart-button {
+        padding: 10px 20px;
+        font-size: clamp(0.9em, 3vw, 1em);
+    }
+
+    .scoreboard {
+        padding: 8px 10px;
+        gap: 5px 15px; /* Adjust vertical and horizontal gap when wrapping */
+    }
+
+    .score {
+        font-size: clamp(0.9em, 2.8vw, 1em); /* Slightly smaller base */
+    }
+
+     .score strong {
+        padding: 1px 5px; /* Even less padding */
+     }
 }
