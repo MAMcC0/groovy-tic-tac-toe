@@ -33,3 +33,60 @@ function handleCellUsed (clickedCell, clickedCellIndex) {
     clickedCell.classList.add(currentPlayer.toLowerCase());
 };
 
+function handlePlayerChange() {
+    currentPlayer = currentPlayer ==="X" ? "O": "X";
+    statusDisplay.textContent = currentPlayerTurn();
+
+}
+
+function handleResultValidation() {
+    let roundWon = false;
+    for (let i = 0; i < winConditions.length; i++) {
+        const winningCondition = winConditions[i];
+        const a =gameState[winningCondition[0]];
+        const b =gameState[winningCondition[1]];
+        const c =gameState[winningCondition[2]];
+
+        if (a === '' || b === '' || c === ''){
+            continue;
+        }
+        if (a === b && b === c){
+            roundWon = true;
+            break;
+        }
+
+    }
+
+    if (roundWon){
+        statusDisplay.textContent = winMessage();
+        gameActive = false;
+        return;
+    }
+
+    const roundDraw = !gameState.includes("");
+    if (roundDraw){
+        statusDisplay.textContent = drawMessage();
+        gameActive = false;
+        return;
+    }
+
+    //if both are false goes to handling player change
+    handlePlayerChange();
+}
+
+function handleCellClick(event){
+    const clickedCell = event.target;
+    const clickedCellIndex = parseInt(clickedCell.getAttribute('data-index'));
+
+    if (gameState[clickedCellIndex] !== "" || !gameActive){
+        return;
+    }
+
+    handleCellPlayed(clickedCell,clickedCellIndex);
+    handleResultValidation();
+}
+
+function handleRestartGame(){
+    currentPlayer = "X";
+    gameState = ["","","","","","","","","",];
+}
