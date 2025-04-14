@@ -35,7 +35,7 @@ function handleCellUsed (clickedCell, clickedCellIndex) {
 
 function handlePlayerChange() {
     currentPlayer = currentPlayer ==="X" ? "O": "X";
-    statusDisplay.textContent = currentPlayerTurn();
+    statusDisplay.textContent = currentPlayerMessage();
 
 }
 
@@ -82,7 +82,7 @@ function handleCellClick(event){
         return;
     }
 
-    handleCellPlayed(clickedCell,clickedCellIndex);
+    handleCellUsed(clickedCell,clickedCellIndex);
     handleResultValidation();
 }
 
@@ -90,7 +90,7 @@ function handleRestartGame(){
     currentPlayer = "X";
     gameState = ["","","","","","","","","",];
     gameActive = true;
-    statusDisplay.textContent = currentPlayerTurn();
+    statusDisplay.textContent = currentPlayerMessage();
     cells.forEach(cell => {
         cell.textContent = '';
         cell.classList.remove('x', 'o');
